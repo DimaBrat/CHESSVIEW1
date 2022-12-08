@@ -1,0 +1,43 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block css_link %}<link rel="stylesheet" href="{% static '/css/style.css' %}">{% endblock %}
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+	  	<div class="panel">
+	  	<div class="logo"><a href="{% url 'index' %}">CHESSVIEW</a></div>
+	  	<div class="hamb">
+	  		<div class="menu_text">МЕНЮ</div>
+				<div class="hamb_field" id="hamb">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
+			<ul class="menu" id="menu">
+				<li><a href="{% url 'lessons' %}">ОСНОВЫ ИГРЫ</a></li>
+				<li><a href="{% url 'openings' %}">ДЕБЮТЫ</a></li>
+				<li><a href="{% url 'articles' %}">ИСТОРИЯ ШАХМАТ</a></li>
+				<li><a href="{% url 'news' %}">НОВОСТИ</a></li>
+				<li><a href="{% url 'contact' %}">КОНТАКТЫ</a></li>
+				<!--
+				<li><a href="{% url 'signin' %}"><img class="user_icon" src="{% static 'img/user.png' %}" alt="Фото" width="30" height="30"><div class="menu_text">ВХОД/РЕГИСТРАЦИЯ</div></a></li>
+				-->
+				{% if user.is_authenticated %}
+					<li><a class="user_active_icon"><img class="user_icon" src="{% static 'img/user_active.png' %}" alt="Фото" width="28" height="28"><div class="menu_text active_text">{{ user }}</div></a></li>
+					<li><a href="{% url 'signout' %}">ВЫХОД</a></li>
+				{% else %}
+					<li><a href="{% url 'signin' %}"><img class="user_icon" src="{% static 'img/user.png' %}" alt="Фото" width="28" height="28"><div class="menu_text">ВХОД/РЕГИСТРАЦИЯ</div></a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="popup" id="popup"></div>
+  	<div class="video_background">
+  		<video src="{% static 'video\background.mp4' %}" autoplay muted loop></video>
+  		<div class="effects"></div>
+  		<div class="video_background_content">
+  			<p>Путешествие в шахматное королевство</p>
+  		</div>
+  	</div>
+{% endblock %}
