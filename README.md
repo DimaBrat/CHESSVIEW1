@@ -2,6 +2,6 @@
 
 This project is a chess educational website. 
 
-The project is written in pure Django as a graduation project. The project also used HTML, CSS and JavaScript to create the user interface. 
+The project is written in pure Django as a graduation project. The project also used HTML, CSS and JavaScript to create the user interface. The site has functions for registration and authorisation, leaving feedback and commenting on posts. The standard admin panel built into Django is used, with minor modifications using "ckeditor".
 
-The site has functions for registration and authorisation, leaving feedback and commenting on posts. The standard admin panel built into Django is used, with minor modifications using "ckeditor".
+Unfortunately, the development methodology used is already outdated and it is worth rewriting the project under DRF (Django Rest Framework) using Node.js and the actual written API.
